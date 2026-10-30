@@ -112,9 +112,16 @@ const copy = {
   }
 } as const;
 
+const HERO_LINK_TYPES: ContactType[] = [
+  ContactType.EMAIL,
+  ContactType.WHATSAPP,
+  ContactType.LINKEDIN,
+  ContactType.GITHUB,
+];
+
 function pickHeroLinks(links: ContactLink[]) {
   return links
-    .filter((item) => [ContactType.EMAIL, ContactType.WHATSAPP, ContactType.LINKEDIN, ContactType.GITHUB].includes(item.type))
+    .filter((item) => HERO_LINK_TYPES.includes(item.type))
     .slice(0, 4);
 }
 
