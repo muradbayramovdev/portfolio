@@ -106,6 +106,8 @@ This portfolio was conceived, designed, and directed by **Murad Bayramov**, incl
 
 ## 📬 Contact
 
+- 💼 LinkedIn: [muradbayramov251](https://www.linkedin.com/in/muradbayramov251/)
+- ✉️ Email: [muradbayramov251@gmail.com](mailto:muradbayramov251@gmail.com)
 - 🐙 GitHub: [muradbayramovdev](https://github.com/muradbayramovdev)
 
 ## 📄 License & Ownership
