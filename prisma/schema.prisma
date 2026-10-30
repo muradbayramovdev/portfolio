@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model SiteContent {
+  id                 String   @id @default("singleton")
+  name               String
+  role               String
+  shortIntro         String
+  aboutText          String
+  heroImageUrl       String?
+  heroPrimaryLabel   String
+  heroPrimaryHref    String
+  heroSecondaryLabel String
+  heroSecondaryHref  String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Project {
+  id               String   @id @default(cuid())
+  title            String
+  shortDescription String
+  longDescription  String?
+  imageUrl         String?
+  projectUrl       String?
+  githubUrl        String?
+  tags             Json
+  status           ProjectStatus @default(ACTIVE)
+  displayOrder     Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model ContactLink {
+  id          String   @id @default(cuid())
+  type        ContactType
+  label       String
+  value       String
+  href        String
+  enabled     Boolean  @default(true)
+  displayOrder Int     @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum ProjectStatus {
+  ACTIVE
+  HIDDEN
+}
+
+enum ContactType {
+  INSTAGRAM
+  LINKEDIN
+  GITHUB
+  EMAIL
+  PHONE
+  WHATSAPP
+  CUSTOM
+}
